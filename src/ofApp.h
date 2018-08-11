@@ -125,6 +125,10 @@ private:
             
             unchiImg.load("unchi.png");
             benzaImg.load("benza.png");
+            rankImgs[0].load("1st.png");
+            rankImgs[1].load("2nd.png");
+            rankImgs[2].load("3rd.png");
+            rankImgs[3].load("4th.png");
             se01.load("pu01.mp3");
             se01.setVolume(1);
             se02.load("pu02.mp3");
@@ -251,8 +255,9 @@ private:
                 countFont.drawString(ofToString(curCount) + "/" + ofToString(refCount), ofGetWidth() - 300, ofGetHeight() - 10);
                 
                 if (state == TEAM_STATE::FINISHING) {
-                    ofSetColor(255, 0, 0);
-                    finishFont.drawString("No." + ofToString(rank), ofGetWidth() / 2 - 250, ofGetHeight() / 2 - 100);
+                    ofSetColor(255);
+                    ofImage& rankImg = rankImgs[rank - 1];
+                    rankImg.draw((ofGetWidth() / 2) - (rankImg.getWidth() / 2), (ofGetHeight() / 2) - (rankImg.getHeight() / 2));
                 }
             }
             ofPopStyle();
@@ -309,6 +314,7 @@ private:
         
         ofImage unchiImg;
         ofImage benzaImg;
+        array<ofImage, 4> rankImgs;
         ofSoundPlayer se01;
         ofSoundPlayer se02;
         ofTrueTypeFont countFont;
