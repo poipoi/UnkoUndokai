@@ -134,7 +134,7 @@ private:
             se02.load("pu02.mp3");
             se02.setVolume(1);
             
-            countFont.load("verdana.ttf", 70, true, true);
+            countFont.load("verdana.ttf", 150, true, true);
             countFont.setLineHeight(18.0f);
             countFont.setLetterSpacing(1.037);
             finishFont.load("verdana.ttf", 70, true, true);
@@ -251,8 +251,8 @@ private:
             
             ofPushStyle();
             {
-                ofSetColor(255 * 0.7);
-                countFont.drawString(ofToString(curCount) + "/" + ofToString(refCount), ofGetWidth() - 300, ofGetHeight() - 10);
+                ofSetColor(color);
+                countFont.drawString(ofToString(curCount) + "/" + ofToString(refCount), ofGetWidth() - 500, ofGetHeight() - 30);
                 
                 if (state == TEAM_STATE::FINISHING) {
                     ofSetColor(255);
